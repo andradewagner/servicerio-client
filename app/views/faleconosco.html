@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="alert alert-success fade in" ng-show="contato.sucesso">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Obrigado pela sua mensagem! Entraremos em contato rapidamente.</strong>
+  </div>
+  <div class="alert alert-danger fade in" ng-show="contato.erro">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Desculpe! Houve um erro ao enviar sua mensagem. Pode tentar novamente clicando no botão enviar.</strong>
+  </div>
+  <form class="form-group" action="/api/fale_conosco" method="post">
+    <div class="form-group row">
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" class="form-control" id="nome" ng-model="contato.nome" placeholder="Informe seu nome">
+    </div>
+    <div class="form-group row">
+      <label for="email">Email</label>
+      <input type="email" name="email" class="form-control" id="email" ng-model="contato.email" aria-describedby="emailInforme" placeholder="Informe seu Email">
+      <small id="emailInforme" class="form-text text-muted">Nunca compartilharemos seu email com alguém.</small>
+    </div>
+    <div class="form-group row">
+      <label for="campoTexto">Mensagem</label>
+      <textarea class="form-control" name="mensagem" id="campoTexto" ng-model="contato.mensagem" rows="3"></textarea>
+    </div>
+    <button type="button" class="btn btn-success" ng-click="contato.enviar()">Enviar</button>
+  </form>
+</div>
