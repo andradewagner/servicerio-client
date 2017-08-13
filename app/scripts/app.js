@@ -39,10 +39,8 @@ angular
         controller: 'PlacesCtrl',
         controllerAs: 'places'
       })
-      .when('/time/estabelecimentos/:name', {
-        templateUrl: function(urlAttr) {
-          return 'views/' + urlAttr.name + '.html';
-        },
+      .when('/time/estabelecimentos/categoria', {
+        templateUrl: 'views/empresas_lista.html',
         controller: 'PlacesCtrl',
         controllerAs: 'places'
       })

@@ -3,13 +3,13 @@
       <div class="col-xs-6 col-md-6">
         <div class="panel panel-success">
           <div class="panel-heading">{{places.result[$index].title}}</div>
-          <div class="panel-body text-center"><a ng-href="/time/estabelecimentos/{{places.result[$index].link}}"><img ng-src="/images/{{places.result[$index].image}}.svg" style="height:80px;"/></a></div>
+          <div class="panel-body text-center"><a ng-href="/time/estabelecimentos/categoria?tipo={{places.result[$index].categoria}}"><img ng-src="/images/{{places.result[$index].image}}.svg" style="height:80px;"/></a></div>
         </div>
       </div>
       <div class="col-xs-6 col-md-6" ng-show="places.result[$index + 1].title">
         <div class="panel panel-success">
           <div class="panel-heading">{{places.result[$index + 1].title}}</div>
-          <div class="panel-body text-center"><a ng-href="/time/estabelecimentos/{{places.result[$index].link}}"><img ng-src="/images/{{places.result[$index + 1].image}}.svg" style="height:80px;" /></a></div>
+          <div class="panel-body text-center"><a ng-href="/time/estabelecimentos/categoria?tipo={{places.result[$index + 1].categoria}}"><img ng-src="/images/{{places.result[$index + 1].image}}.svg" style="height:80px;" /></a></div>
         </div>
       </div>
     </div>

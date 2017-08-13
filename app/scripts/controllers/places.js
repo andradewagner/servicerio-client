@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('PlacesCtrl', ['$http', function ($http) {
+  .controller('PlacesCtrl', ['$http', '$routeParams', function ($http, $routeParams) {
     var scope = this;
 
     this.load = function() {
@@ -23,8 +23,7 @@ angular.module('clientApp')
     };
 
     this.carregarLugares = function() {
-      var segmento = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
-      var req = $http.get('/api/team/places/' + segmento);
+      var req = $http.get('/api/team/places/categoria?tipo=' + $routeParams.tipo);
       req.then(function(res) {
         scope.result = res.data;
       });
