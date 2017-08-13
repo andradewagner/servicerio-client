@@ -54,6 +54,11 @@ angular
         controller: 'ProfessionalsCtrl',
         controllerAs: 'professionals'
       })
+      .when('/cadastro', {
+        templateUrl: 'views/cadastro.html',
+        controller: 'CadastroCtrl',
+        controllerAs: 'cadastro'
+      })
       .when('/fale_conosco', {
         templateUrl: 'views/faleconosco.html',
         controller: 'ContatoCtrl',
