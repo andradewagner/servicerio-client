@@ -21,7 +21,7 @@
       <div class="panel-footer footer-padding">
         <img ng-repeat="amenidade in place.amenidades" class="img-thumbnail" width="40" height="40" src="/images/{{amenidade}}.svg"/>
         <a ng-repeat="midia in place.midiaSocial" href="{{midia.link}}" target="_blank"><img class="img-thumbnail" width="40" height="40" src="/images/{{midia.midia}}.svg"/></a>
-        <img ng-repeat="idioma in place.idiomas" class="img-thumbnail" width="40" height="40" src="/images/{{idioma}}.svg"/>
+        <img ng-repeat="idioma in place.idiomas" class="img-thumbnail" alt="Foreign language spoken" title="Foreign language spoken" width="40" height="40" src="/images/{{idioma}}.svg"/>
         <img ng-show="place.areaSegura" class="img-thumbnail" src="/images/safe_zone.svg" width="40" height="40" title="Safe Area" alt="Safe Area"/>
       </div>
     </div>
