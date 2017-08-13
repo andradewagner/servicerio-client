@@ -1,0 +1,25 @@
+<div class="container" ng-init="professionals.categoria()">
+    <div class="row" ng-repeat="profissional in professionals.result">
+      <div class="panel panel-success">
+        <div class="panel-heading">{{profissional.nome}}</div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-4 col-md-2 col-lg-2">
+              <img src="/images/{{profissional.foto}}" class="img-responsive"/>
+            </div>
+            <div class="col-xs-8 col-md-10 col-lg-10">
+              {{profissional.descricao}}
+              <br/><br/>
+              <span ng-repeat="contato in profissional.contato">
+                <span ng-repeat="telefone in contato.telefone"><img src="/images/telefone.svg" class="mr-5" alt="Contato" title="Contato" width="15" height="15" />{{telefone}}</span>
+                <br/>
+                <span ng-repeat="link in contato.link">
+                  <a href="{{link.link}}" ng-show="link.link" target="_blank"><img src="/images/{{link.tipo}}.svg" class="mr-5" alt="LinkedIn" title="LinkedIn" width="20" height="20"/>Clique para ver o {{link.nome}}</a>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

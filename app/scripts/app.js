@@ -39,8 +39,20 @@ angular
         controller: 'PlacesCtrl',
         controllerAs: 'places'
       })
+      .when('/time/estabelecimentos/:name', {
+        templateUrl: function(urlAttr) {
+          return 'views/' + urlAttr.name + '.html';
+        },
+        controller: 'PlacesCtrl',
+        controllerAs: 'places'
+      })
       .when('/time/profissionais', {
         templateUrl: 'views/team_professionals.html',
+        controller: 'ProfessionalsCtrl',
+        controllerAs: 'professionals'
+      })
+      .when('/time/profissionais/categoria', {
+        templateUrl: 'views/profissionais.html',
         controller: 'ProfessionalsCtrl',
         controllerAs: 'professionals'
       })

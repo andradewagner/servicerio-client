@@ -1,12 +1,7 @@
-<div class="jumbotron">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-
-      </div>
-      <div class="col-md-6">
-
-      </div>
+<div class="container" ng-init="professionals.load()">
+  <div class="row">
+    <div class="col-md-12 col-xd-12 col-lg-12">
+      <a class="btn btn-success" ng-repeat="profissional in professionals.result" ng-href="/time/profissionais/categoria?tipo={{profissional.categoria}}">{{profissional.title}}</a>
     </div>
   </div>
 </div>

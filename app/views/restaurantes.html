@@ -1,0 +1,29 @@
+<div class="container" ng-init="places.carregarLugares()">
+  <div class="row" ng-repeat="place in places.result">
+    <div class="panel panel-success">
+      <div class="panel-heading">{{place.nomeFantasia}}</div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-4 col-md-2 col-lg-2">
+            <img class="img-responsive" ng-src="/images/{{place.foto}}"/>
+          </div>
+          <div class="col-xs-8 col-md-10 col-lg-10">
+            {{place.descricao}}
+            <br/>
+            {{place.endereco}} - {{place.bairro}}
+            <br/>
+            <img src="/images/telefone.svg" class="mr-5" alt="Contato" title="Contato" width="15" height="15" /><span ng-repeat="telefone in place.telefones">{{telefone}}{{$last ? '' : ' / '}}</span>
+            <br/>
+            <span ng-show="place.metro"><img title="Metro" class="mr-5" width="15" height="15" alt="Metro" src="/images/metro_rio.png">Estação do Metrô mais próxima: {{place.metro}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer footer-padding">
+        <img ng-repeat="amenidade in place.amenidades" class="img-thumbnail" width="40" height="40" src="/images/{{amenidade}}.svg"/>
+        <a ng-repeat="midia in place.midiaSocial" href="{{midia.link}}" target="_blank"><img class="img-thumbnail" width="40" height="40" src="/images/{{midia.midia}}.svg"/></a>
+        <img ng-repeat="idioma in place.idiomas" class="img-thumbnail" width="40" height="40" src="/images/{{idioma}}.svg"/>
+        <img ng-show="place.areaSegura" class="img-thumbnail" src="/images/safe_zone.svg" width="40" height="40" title="Safe Area" alt="Safe Area"/>
+      </div>
+    </div>
+  </div>
+</div>

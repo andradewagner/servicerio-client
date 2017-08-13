@@ -1,15 +1,15 @@
-<div class="container">
+<div class="container" ng-init="places.load()">
     <div class="row" ng-repeat="place in places.result" ng-if="$even">
       <div class="col-xs-6 col-md-6">
         <div class="panel panel-success">
           <div class="panel-heading">{{places.result[$index].title}}</div>
-          <div class="panel-body text-center"><img src="/images/{{places.result[$index].image}}.svg" style="height:80px;"/></div>
+          <div class="panel-body text-center"><a ng-href="/time/estabelecimentos/{{places.result[$index].link}}"><img ng-src="/images/{{places.result[$index].image}}.svg" style="height:80px;"/></a></div>
         </div>
       </div>
       <div class="col-xs-6 col-md-6">
         <div class="panel panel-success">
           <div class="panel-heading">{{places.result[$index + 1].title}}</div>
-          <div class="panel-body text-center"><img src="/images/{{places.result[$index + 1].image}}.svg" style="height:80px;" /></div>
+          <div class="panel-body text-center"><a ng-href="/time/estabelecimentos/{{places.result[$index].link}}"><img ng-src="/images/{{places.result[$index + 1].image}}.svg" style="height:80px;" /></a></div>
         </div>
       </div>
     </div>
