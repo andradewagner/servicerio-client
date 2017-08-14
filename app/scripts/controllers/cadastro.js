@@ -13,6 +13,11 @@ angular.module('clientApp')
     scope.sucesso = false;
     scope.erro = false;
 
+    scope.profissionalTelefones = [];
+    scope.profissional = {
+      bairros: []
+    };
+
   this.cadastrar = function() {
     var req = {
       method: 'POST',
@@ -52,6 +57,64 @@ angular.module('clientApp')
     });
   };
 
+  this.cadastrarProfissional = function() {
+    var req = {
+      method: 'POST',
+      url: '/api/cadastrar',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        id: '',
+        nome: scope.nome,
+        descricao: scope.descricaoProfissional,
+        foto: '',
+        contato: [
+          {telefone: scope.profissionalTelefones},
+          {link: [{tipo: 'linkedin', nome: 'LinkedIn', link:scope.linkedin},
+          {tipo: 'facebook', nome: 'Facebook', link:scope.facebookProfissional}]},
+          {email: scope.emailProfissional}
+        ],
+        categoria: '',
+        email: scope.emailProfissional
+        }
+    };
+
+    $http(req).then(function(){
+      scope.sucesso = true;
+      if(scope.erro)
+        scope.erro = false;
+      scope.limparCamposProfissional();
+    }, function(){
+      scope.erro = true;
+    });
+  };
+
+  this.adicionarBairros = function() {
+    this.profissional.bairros.push(scope.bairroAtendimento);
+  };
+
+  this.adicionarTelefone = function() {
+    this.profissionalTelefones.push(scope.telefonesProfissional);
+  };
+
+  this.removerBairro = function(i) {
+    this.profissional.bairros.splice(i, 1);
+  };
+
+  this.removerTelefone = function(i) {
+    this.profissionalTelefones.splice(i, 1);
+  };
+
+  this.limparCampo = function(campo) {
+    if(campo === 'bairroAtendimento') {
+      scope.bairroAtendimento = '';
+    }
+    if(campo === 'telefonesProfissional') {
+      scope.telefonesProfissional = '';
+    }
+  };
+
   this.limparCampos = function() {
     scope.razaoSocial = '';
     scope.nomeFantasia = '';
@@ -65,5 +128,15 @@ angular.module('clientApp')
     scope.email = '';
     scope.facebook = '';
     scope.internet = '';
+  };
+
+  this.limparCamposProfissional = function() {
+    scope.nome = '';
+    scope.profissionalTelefones.splice(0, scope.profissionalTelefones.length);
+    scope.profissional.bairros.splice(0, scope.profissional.bairros.length);
+    scope.facebookProfissional = '';
+    scope.linkedin = '';
+    scope.emailProfissional = '';
+    scope.descricaoProfissional = '';
   };
 }]);

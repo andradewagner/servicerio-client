@@ -1,5 +1,5 @@
 <div class="container">
-  
+
   <div class="alert alert-success fade in" ng-show="cadastro.sucesso">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Obrigado por se cadastrar! Entraremos em contato rapidamente para ativar seu perfil.</strong>
@@ -8,55 +8,113 @@
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Desculpe! Houve um erro ao processar sua solicitação. Pode tentar novamente clicando no botão Cadastrar.</strong>
   </div>
-  <form class="form-group" action="/api/cadastro" method="post">
-    <div class="form-group row">
-      <label for="razaosocial">Razão Social</label>
-      <input type="text" name="razaosocial" class="form-control" id="razaosocial" ng-model="cadastro.razaoSocial" placeholder="Informe a razão social">
+
+  <div class="col-md-12 col-xs-12">
+    <div class="panel with-nav-tabs panel-success">
+      <div class="panel-heading">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#empresas" data-toggle="tab">Empresas</a></li>
+          <li><a href="#profissionais" data-toggle="tab">Profissionais</a></li>
+        </ul>
+      </div>
+      <div class="panel-body">
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="empresas">
+            <div class="col-md-12 col-xs-12">
+              <form class="form-group" action="/api/cadastro" method="post">
+                <div class="form-group row">
+                  <label for="razaosocial">Razão Social</label>
+                  <input type="text" name="razaosocial" class="form-control" id="razaosocial" ng-model="cadastro.razaoSocial" placeholder="Informe a razão social">
+                </div>
+                <div class="form-group row">
+                  <label for="nomefantasia">Nome Fantasia</label>
+                  <input type="text" name="nomefantasia" class="form-control" id="nomefantasia" ng-model="cadastro.nomeFantasia" aria-describedby="nomefantasia" placeholder="Informe o nome fantasia">
+                </div>
+                <div class="form-group row">
+                  <label for="endereco">Endereço</label>
+                  <input type="text" name="endereco" class="form-control" id="endereco" ng-model="cadastro.endereco" aria-describedby="endereco" placeholder="Informe o endereço">
+                </div>
+                <div class="form-group row">
+                  <label for="bairro">Bairro</label>
+                  <input type="text" name="bairro" class="form-control" id="bairro" ng-model="cadastro.bairro" aria-describedby="bairro" placeholder="Informe o bairro">
+                </div>
+                <div class="form-group row">
+                  <label for="cidade">Cidade</label>
+                  <input type="text" name="cidade" class="form-control" id="cidade" ng-model="cadastro.cidade" aria-describedby="cidade" placeholder="Informe a cidade">
+                </div>
+                <div class="form-group row">
+                  <label for="telefone">Telefone</label>
+                  <input type="text" name="telefone" class="form-control" id="telefone" ng-model="cadastro.telefone" aria-describedby="telefone" placeholder="Informe o telefone de contato">
+                </div>
+                <div class="form-group row">
+                  <label for="modalidade">Modalidade</label>
+                  <input type="text" name="modalidade" class="form-control" id="modalidade" ng-model="cadastro.modalidade" aria-describedby="modalidade" placeholder="Informe a modalidade do seu negócio">
+                </div>
+                <div class="form-group row">
+                  <label for="metro">Metrô</label>
+                  <input type="text" name="metro" class="form-control" id="metro" ng-model="cadastro.metro" aria-describedby="metro" placeholder="Estação de metrô mais próxima">
+                </div>
+                <div class="form-group row">
+                  <label for="facebook">Email</label>
+                  <input type="text" name="email" class="form-control" id="email" ng-model="cadastro.email" aria-describedby="email" placeholder="Informe seu email para contato">
+                </div>
+                <div class="form-group row">
+                  <label for="facebook">Facebook</label>
+                  <input type="text" name="facebook" class="form-control" id="facebook" ng-model="cadastro.facebook" aria-describedby="facebook" placeholder="Informe sua página no Facebook">
+                </div>
+                <div class="form-group row">
+                  <label for="internet">Página web</label>
+                  <input type="text" name="internet" class="form-control" id="internet" ng-model="cadastro.internet" aria-describedby="internet" placeholder="Informe sua página na Internet">
+                </div>
+                <div class="form-group row">
+                  <label for="campoTexto">Descrição</label>
+                  <textarea class="form-control" name="mensagem" id="campoTexto" ng-model="cadastro.descricao" rows="3" placeholder="Uma descrição sobre a sua empresa"></textarea>
+                </div>
+                <button type="button" class="btn btn-success" ng-click="cadastro.cadastrar()">Cadastrar</button>
+              </form>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="profissionais">
+            <form>
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" class="form-control" id="nome" ng-model="cadastro.nome" placeholder="Informe seu nome"/>
+              </div>
+              <label for="bairroAtendimento">Bairros que você atende</label>
+              <div class="input-group">
+                <input type="text" name="bairroAtendimento" class="form-control" id="bairroAtendimento" ng-model="cadastro.bairroAtendimento" aria-describedby="bairroAtendimento" placeholder="Informe os bairros que você presta seu serviço"/>
+                <span class="input-group-btn"><button class="btn btn-success" ng-click="cadastro.adicionarBairros(); cadastro.limparCampo('bairroAtendimento')">+</button></span>
+              </div>
+              <a class="btn btn-success" ng-repeat="bairro in cadastro.profissional.bairros" alt="Clique para remover" title="Clique para remover" ng-click="cadastro.removerBairro($index)">{{bairro}}</a>
+              <br/>
+              <label for="telefonesProfissional">Seus telefones de contato</label>
+              <div class="input-group">
+                <input type="text" name="telefonesProfissional" class="form-control" id="telefonesProfissional" ng-model="cadastro.telefonesProfissional" aria-describedby="telefonesProfissional" placeholder="Adicione seus números de contato"/>
+                <span class="input-group-btn"><button class="btn btn-success" ng-click="cadastro.adicionarTelefone(); cadastro.limparCampo('telefonesProfissional')">+</button></span>
+              </div>
+              <a class="btn btn-success" ng-repeat="telefoneProfissional in cadastro.profissionalTelefones" alt="Clique para remover" title="Clique para remover" ng-click="cadastro.removerTelefone($index)">{{telefoneProfissional}}</a>
+              <br/>
+              <div class="form-group">
+                <label for="facebookProfissional">Facebook</label>
+                <input type="text" name="facebookProfissional" class="form-control" id="facebookProfissional" ng-model="cadastro.facebookProfissional" placeholder="Informe seu link do Facebook caso desejar"/>
+              </div>
+              <div class="form-group">
+                <label for="linkedin">LinkedIn</label>
+                <input type="text" name="linkedin" class="form-control" id="linkedin" ng-model="cadastro.linkedin" placeholder="Informe seu LinkedIn se desejar"/>
+              </div>
+              <div class="form-group">
+                <label for="emailProfissional">Email</label>
+                <input type="text" name="emailProfissional" class="form-control" id="emailProfissional" ng-model="cadastro.emailProfissional" placeholder="Informe seu email de contato se desejar"/>
+              </div>
+              <div class="form-group">
+                <label for="descricaoProfissional">Descrição</label>
+                <textarea class="form-control" name="descricaoProfissional" id="descricaoProfissional" ng-model="cadastro.descricaoProfissional" rows="3" placeholder="Uma descrição sobre você"></textarea>
+              </div>
+              <button type="button" class="btn btn-success" ng-click="cadastro.cadastrarProfissional()">Cadastrar</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form-group row">
-      <label for="nomefantasia">Nome Fantasia</label>
-      <input type="text" name="nomefantasia" class="form-control" id="nomefantasia" ng-model="cadastro.nomeFantasia" aria-describedby="nomefantasia" placeholder="Informe o nome fantasia">
-    </div>
-    <div class="form-group row">
-      <label for="endereco">Endereço</label>
-      <input type="text" name="endereco" class="form-control" id="endereco" ng-model="cadastro.endereco" aria-describedby="endereco" placeholder="Informe o endereço">
-    </div>
-    <div class="form-group row">
-      <label for="bairro">Bairro</label>
-      <input type="text" name="bairro" class="form-control" id="bairro" ng-model="cadastro.bairro" aria-describedby="bairro" placeholder="Informe o bairro">
-    </div>
-    <div class="form-group row">
-      <label for="cidade">Cidade</label>
-      <input type="text" name="cidade" class="form-control" id="cidade" ng-model="cadastro.cidade" aria-describedby="cidade" placeholder="Informe a cidade">
-    </div>
-    <div class="form-group row">
-      <label for="telefone">Telefone</label>
-      <input type="text" name="telefone" class="form-control" id="telefone" ng-model="cadastro.telefone" aria-describedby="telefone" placeholder="Informe o telefone de contato">
-    </div>
-    <div class="form-group row">
-      <label for="modalidade">Modalidade</label>
-      <input type="text" name="modalidade" class="form-control" id="modalidade" ng-model="cadastro.modalidade" aria-describedby="modalidade" placeholder="Informe a modalidade do seu negócio">
-    </div>
-    <div class="form-group row">
-      <label for="metro">Metrô</label>
-      <input type="text" name="metro" class="form-control" id="metro" ng-model="cadastro.metro" aria-describedby="metro" placeholder="Estação de metrô mais próxima">
-    </div>
-    <div class="form-group row">
-      <label for="facebook">Email</label>
-      <input type="text" name="email" class="form-control" id="email" ng-model="cadastro.email" aria-describedby="email" placeholder="Informe seu email para contato">
-    </div>
-    <div class="form-group row">
-      <label for="facebook">Facebook</label>
-      <input type="text" name="facebook" class="form-control" id="facebook" ng-model="cadastro.facebook" aria-describedby="facebook" placeholder="Informe sua página no Facebook">
-    </div>
-    <div class="form-group row">
-      <label for="internet">Página web</label>
-      <input type="text" name="internet" class="form-control" id="internet" ng-model="cadastro.internet" aria-describedby="internet" placeholder="Informe sua página na Internet">
-    </div>
-    <div class="form-group row">
-      <label for="campoTexto">Descrição</label>
-      <textarea class="form-control" name="mensagem" id="campoTexto" ng-model="cadastro.descricao" rows="3" placeholder="Uma descrição sobre a sua empresa"></textarea>
-    </div>
-    <button type="button" class="btn btn-success" ng-click="cadastro.cadastrar()">Cadastrar</button>
-  </form>
+  </div>
 </div>
