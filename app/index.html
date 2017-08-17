@@ -42,7 +42,7 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="/"><img alt="Brand" class="img-responsive" style="float:left; margin-right: 5px;" width="20" height="20" src="/images/logo.png">Service Rio</a>
+            <a class="navbar-brand" onclick="resetActive()" href="/"><img alt="Brand" class="img-responsive" style="float:left; margin-right: 5px;" width="20" height="20" src="/images/logo.png">Service Rio</a>
           </div>
           <script>
             function mudarClasse(id) {
@@ -52,6 +52,13 @@
               }
               var d = document.getElementById(id);
               d.className += "active";
+            };
+            function resetActive() {
+              var li = document.getElementsByTagName("li");
+              for(var i = 0; i < li.length; i++) {
+                li[i].className = "";
+              }
+              document.getElementById("home").className = "active";
             };
           </script>
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
