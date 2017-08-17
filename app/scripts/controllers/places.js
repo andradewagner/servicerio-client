@@ -14,7 +14,6 @@ angular.module('clientApp')
     this.load = function() {
       var req = $http.get('/api/team/places');
       req.then(function(res) {
-        console.log(res.data);
         scope.result = res.data;
       });
       req.catch(function(err) {

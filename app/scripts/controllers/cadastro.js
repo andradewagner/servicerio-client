@@ -91,11 +91,15 @@ angular.module('clientApp')
   };
 
   this.adicionarBairros = function() {
-    this.profissional.bairros.push(scope.bairroAtendimento);
+    if (this.profissional.bairros.indexOf(scope.bairroAtendimento) == -1) {
+      this.profissional.bairros.push(scope.bairroAtendimento);
+    };
   };
 
   this.adicionarTelefone = function() {
-    this.profissionalTelefones.push(scope.telefonesProfissional);
+    if (this.profissionalTelefones.indexOf(scope.telefonesProfissional) == -1) {
+      this.profissionalTelefones.push(scope.telefonesProfissional);
+    };
   };
 
   this.removerBairro = function(i) {
@@ -138,5 +142,16 @@ angular.module('clientApp')
     scope.linkedin = '';
     scope.emailProfissional = '';
     scope.descricaoProfissional = '';
+  };
+
+  this.aba = function(aba) {
+    if(aba === '1') {
+      scope.abaEmpresa = true;
+      scope.abaProf = false;
+    }
+    if(aba === '2') {
+      scope.abaProf = true;
+      scope.abaEmpresa = false;
+    }
   };
 }]);

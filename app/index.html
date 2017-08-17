@@ -44,15 +44,23 @@
 
             <a class="navbar-brand" href="/"><img alt="Brand" class="img-responsive" style="float:left; margin-right: 5px;" width="20" height="20" src="/images/logo.png">Service Rio</a>
           </div>
-
+          <script>
+            function mudarClasse(id) {
+              var li = document.getElementsByTagName("li");
+              for(var i = 0; i < li.length; i++) {
+                li[i].className = "";
+              }
+              var d = document.getElementById(id);
+              d.className += "active";
+            };
+          </script>
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
             <ul class="nav navbar-nav">
-              <li class="active"><a href="/">Início</a></li>
-              <li><a ng-href="/time">Nosso Time</a></li>
-              <li><a ng-href="/quem_somos">Quem somos</a></li>
-              <li><a href="/cadastro">Cadastro</a></li>
-              <li><a href="/fale_conosco">Fale Conosco</a></li>
+              <li id="home" onclick="mudarClasse(this.id)" class="active"><a href="/">Início</a></li>
+              <li id="time" onclick="mudarClasse(this.id)"><a ng-href="/time">Nosso Time</a></li>
+              <li id="sobre" onclick="mudarClasse(this.id)"><a ng-href="/quem_somos">Quem somos</a></li>
+              <li id="cadastro" onclick="mudarClasse(this.id)"><a href="/cadastro">Cadastro</a></li>
+              <li id="contato" onclick="mudarClasse(this.id)"><a href="/fale_conosco">Fale Conosco</a></li>
             </ul>
           </div>
         </div>

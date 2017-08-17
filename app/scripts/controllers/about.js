@@ -11,6 +11,7 @@ angular.module('clientApp')
   .controller('AboutCtrl', ['$http', function ($http) {
     var req = $http.get('/api/quem_somos');
     var scope = this;
+    scope.active = true;
     req.then(function (res) {
       scope.result = res.data;
     });
