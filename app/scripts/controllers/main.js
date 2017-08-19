@@ -10,4 +10,10 @@
 angular.module('clientApp')
   .controller('MainCtrl', ['$http', function ($http) {
     var scope = this;
+    var slider = new IdealImageSlider.Slider({
+    	selector: '#slider',
+    	height: 300,
+    	interval: 4000
+    });
+    slider.start();
   }]);
