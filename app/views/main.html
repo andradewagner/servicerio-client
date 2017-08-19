@@ -8,11 +8,32 @@
   <p><a class="btn btn-lg btn-success" ng-href="/time">Conheça nosso time</a></p>
 </div>
 
-<div class="row">
-  <div class="col-md-12 col-xs-12 col-lg-12">
-  	<img src="images/banner_carrossel_1.jpg" class="img-responsive" alt="servicerio.com banner" style="margin-bottom: 30px;"/>
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="/images/banner_carrossel_1.jpg" style="width:100%">
   </div>
 
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="/images/banner_carrossel_2.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="/images/banner_carrossel_3.jpg" style="width:100%">
+  </div>
+
+  <a class="prev" ng-click="main.plusSlides(-1)">&#10094;</a>
+  <a class="next" ng-click="main.plusSlides(1)">&#10095;</a>
+</div>
+<div style="text-align:center">
+  <span class="dot" ng-click="main.currentSlide(1)"></span>
+  <span class="dot" ng-click="main.currentSlide(2)"></span>
+  <span class="dot" ng-click="main.currentSlide(3)"></span>
+</div>
+
+<div class="row">
   <div class="col-md-4 col-xs-12 col-lg-4">
     <div class="panel panel-primary">
       <div class="panel-heading"><h5><i class="fa fa-address-book" aria-hidden="true"></i> Seu catálogo online!</h5></div>
@@ -47,21 +68,21 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="row marketing">
-  <h4><i class="fa fa-bullhorn" aria-hidden="true"></i> Saiba mais sobre nossos parceiros:</h4>
-  <img class="img-thumbnail" width="40" height="40" src="/images/facebook.svg"/> Veja nossa página no Facebook
-  <br/>
-  <img class="img-thumbnail" width="40" height="40" src="/images/linkedin.svg"/> Veja a página do LinkedIn
-  <br/>
-  <img class="img-thumbnail" width="40" height="40" src="/images/internet.svg"/> Veja nossa página na internet
-  <br/>
-  <img class="img-thumbnail" width="40" height="40" src="/images/wifi.svg"/> Possuímos WiFi para sua comodidade
-  <br/>
-  <img class="img-thumbnail" width="40" height="40" src="/images/metro_rio.png"/> Existe uma estação de metrô perto de nós!
-  <br/>
-  <img class="img-thumbnail" alt="Foreign language spoken" title="Foreign language spoken" width="40" height="40" src="/images/uk.svg"/> Falamos outros idiomas
-  <br/>
-  <img class="img-thumbnail" src="/images/safe_zone.svg" width="40" height="40" title="Safe Area" alt="Safe Area"/> Estamos em um lugar seguro
+  <div class="col-md-12 col-xs-12 col-lg-12">
+    <h4><i class="fa fa-bullhorn" aria-hidden="true"></i> Saiba mais sobre nossos parceiros:</h4>
+    <img class="img-thumbnail" width="40" height="40" src="/images/facebook.svg"/> Veja nossa página no Facebook
+    <br/>
+    <img class="img-thumbnail" width="40" height="40" src="/images/linkedin.svg"/> Veja a página do LinkedIn
+    <br/>
+    <img class="img-thumbnail" width="40" height="40" src="/images/internet.svg"/> Veja nossa página na internet
+    <br/>
+    <img class="img-thumbnail" width="40" height="40" src="/images/wifi.svg"/> Possuímos WiFi para sua comodidade
+    <br/>
+    <img class="img-thumbnail" width="40" height="40" src="/images/metro_rio.png"/> Existe uma estação de metrô perto de nós!
+    <br/>
+    <img class="img-thumbnail" alt="Foreign language spoken" title="Foreign language spoken" width="40" height="40" src="/images/uk.svg"/> Falamos outros idiomas
+    <br/>
+    <img class="img-thumbnail" src="/images/safe_zone.svg" width="40" height="40" title="Safe Area" alt="Safe Area"/> Estamos em um lugar seguro
+  </div>
 </div>
